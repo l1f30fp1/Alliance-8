@@ -47,7 +47,7 @@ void loop(){
     	float poiLoc[3];
     	game.getPOILoc(poiLoc, targetPOI);
 	//This function is called once per second.  Use it to control the satellite.
-	if (game.getNextFlare() < 25 && game.getNextFlare() !=-1)
+	if (game.getNextFlare() <15 && game.getNextFlare() !=-1)
 	{
 	    api.setPositionTarget(darkzone);
         float attTarget[3];
@@ -155,7 +155,7 @@ void facePos(float target[3], float myPos[3]){
 		mathVecNormalize(attTarget,3);
 		api.setAttitudeTarget(attTarget);
 		
-        if (distanceVec(myPos, target)< 1.50)
+        if (distanceVec(myPos, target)< 0.50)
         {
             //DEBUG(("The SPHERE is close enough to take a picture. ")); //    
             if (game.alignLine(targetPOI)==true)
